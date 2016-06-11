@@ -1,0 +1,235 @@
+<div class="post-text" itemprop="text">
+    <p>When using <code>inline-block</code> elements, there will always be an <code>white space</code> <strong>issue between those elements</strong> (that space is about ~ 4px long). </p>
+
+    <p>So, your two <code>divs</code>, which both have 50% width, plus that <code>whitespace</code>(~ 4px) is more than 100% in width, and so it breaks. Example of your problem:</p>
+
+    <p></p><div class="snippet" data-lang="js" data-hide="true"><div class="snippet-display" style="vertical-align: center"><p><a class="snippet-show-link-chevron"><span class="expander-arrow-show" style="vertical-align: middle;"></span></a><a class="snippet-show-link"><span class="show-hide" data-ishidden="true" style="vertical-align: middle">Hide code snippet</span></a></p></div>
+    <div class="snippet-code snippet-currently-hidden" style="display: block;">
+<pre class="snippet-code-css lang-css prettyprint prettyprinted"><code><span class="pln">body</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">margin</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> </span><span class="com">/* removing the default body margin */</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+div</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">display</span><span class="pun">:</span><span class="pln"> inline-block</span><span class="pun">;</span><span class="pln">
+  </span><span class="kwd">width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">50%</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">.</span><span class="pln">left</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">background-color</span><span class="pun">:</span><span class="pln"> aqua</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">.</span><span class="pln">right</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">background-color</span><span class="pun">:</span><span class="pln"> gold</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<pre class="snippet-code-html lang-html prettyprint prettyprinted"><code><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"left"</span><span class="tag">&gt;</span><span class="pln">foo</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"right"</span><span class="tag">&gt;</span><span class="pln">bar</span><span class="tag">&lt;/div&gt;</span></code></pre>
+        <div class="snippet-result" style="width: 100%; border: 1px solid #AAAAAA;"><div style="width: 100%; margin: 0 5px;"><input type="button" value="? Run code snippet" style="margin: 1em 0 1em 0.5em; float: none;"><input class="copySnippet" type="button" value="Copy snippet to answer" style="margin: 1em 0px 1em 0.5em; float: none; display: none;"><input class="hideResults" type="button" value="Hide results" style="margin: 1em 0px 1em 0.5em; float: none; display: none;"></div><div style="position: relative; width: 100%; height: 200px; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(170, 170, 170); display: none;"><iframe name="f9a2b23a-37e6-ffea-0919-24bf617a1afb" sandbox="allow-modals allow-scripts" class="snippet-box-edit" frameborder="0"></iframe></div></div></div>
+</div>
+    <p></p>
+
+    <hr>
+
+    <p>There is a few ways to fix that:</p>
+
+    <p><strong>1. No space between those elements</strong></p>
+
+    <p></p><div class="snippet" data-lang="js" data-hide="true"><div class="snippet-display" style="vertical-align: center"><p><a class="snippet-show-link-chevron"><span class="expander-arrow-show" style="vertical-align: middle;"></span></a><a class="snippet-show-link"><span class="show-hide" data-ishidden="true" style="vertical-align: middle">Hide code snippet</span></a></p></div>
+    <div class="snippet-code snippet-currently-hidden" style="display: block;">
+<pre class="snippet-code-css lang-css prettyprint prettyprinted"><code><span class="pln">body</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">margin</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> </span><span class="com">/* removing the default body margin */</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+div</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">display</span><span class="pun">:</span><span class="pln"> inline-block</span><span class="pun">;</span><span class="pln">
+  </span><span class="kwd">width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">50%</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">.</span><span class="pln">left</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">background-color</span><span class="pun">:</span><span class="pln"> aqua</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">.</span><span class="pln">right</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">background-color</span><span class="pun">:</span><span class="pln"> gold</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+        <pre class="snippet-code-html lang-html prettyprint prettyprinted"><code><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"left"</span><span class="tag">&gt;</span><span class="pln">foo</span><span class="tag">&lt;/div&gt;&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"right"</span><span class="tag">&gt;</span><span class="pln">bar</span><span class="tag">&lt;/div&gt;</span></code></pre>
+        <div class="snippet-result" style="width: 100%; border: 1px solid #AAAAAA;"><div style="width: 100%; margin: 0 5px;"><input type="button" value="? Run code snippet" style="margin: 1em 0 1em 0.5em; float: none;"><input class="copySnippet" type="button" value="Copy snippet to answer" style="margin: 1em 0px 1em 0.5em; float: none; display: none;"><input class="hideResults" type="button" value="Hide results" style="margin: 1em 0px 1em 0.5em; float: none; display: none;"></div><div style="position: relative; width: 100%; height: 200px; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(170, 170, 170); display: none;"><iframe name="458d622a-1e8d-b507-b317-ce32d974069b" sandbox="allow-modals allow-scripts" class="snippet-box-edit" frameborder="0"></iframe></div></div></div>
+</div>
+    <p></p>
+
+    <p><strong>2. Using HTML comments</strong></p>
+
+    <p></p><div class="snippet" data-lang="js" data-hide="true"><div class="snippet-display" style="vertical-align: center"><p><a class="snippet-show-link-chevron"><span class="expander-arrow-show" style="vertical-align: middle;"></span></a><a class="snippet-show-link"><span class="show-hide" data-ishidden="true" style="vertical-align: middle">Hide code snippet</span></a></p></div>
+    <div class="snippet-code snippet-currently-hidden" style="display: block;">
+<pre class="snippet-code-css lang-css prettyprint prettyprinted"><code><span class="pln">body</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">margin</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> </span><span class="com">/* removing the default body margin */</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+div</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">display</span><span class="pun">:</span><span class="pln"> inline-block</span><span class="pun">;</span><span class="pln">
+  </span><span class="kwd">width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">50%</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">.</span><span class="pln">left</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">background-color</span><span class="pun">:</span><span class="pln"> aqua</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">.</span><span class="pln">right</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">background-color</span><span class="pun">:</span><span class="pln"> gold</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<pre class="snippet-code-html lang-html prettyprint prettyprinted"><code><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"left"</span><span class="tag">&gt;</span><span class="pln">foo</span><span class="tag">&lt;/div&gt;</span><span class="com">&lt;!--
+--&gt;</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"right"</span><span class="tag">&gt;</span><span class="pln">bar</span><span class="tag">&lt;/div&gt;</span></code></pre>
+        <div class="snippet-result" style="width: 100%; border: 1px solid #AAAAAA;"><div style="width: 100%; margin: 0 5px;"><input type="button" value="? Run code snippet" style="margin: 1em 0 1em 0.5em; float: none;"><input class="copySnippet" type="button" value="Copy snippet to answer" style="margin: 1em 0px 1em 0.5em; float: none; display: none;"><input class="hideResults" type="button" value="Hide results" style="margin: 1em 0px 1em 0.5em; float: none; display: none;"></div><div style="position: relative; width: 100%; height: 200px; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(170, 170, 170); display: none;"><iframe name="c43edd5f-e431-c8fb-8079-1fbb7d3d570b" sandbox="allow-modals allow-scripts" class="snippet-box-edit" frameborder="0"></iframe></div></div></div>
+</div>
+    <p></p>
+
+    <p><strong>3. Set the parents <code>font-size</code> to <code>0</code>, and then adding some value to <code>inline-block</code> elements</strong></p>
+
+    <p></p><div class="snippet" data-lang="js" data-hide="true"><div class="snippet-display" style="vertical-align: center"><p><a class="snippet-show-link-chevron"><span class="expander-arrow-show" style="vertical-align: middle;"></span></a><a class="snippet-show-link"><span class="show-hide" data-ishidden="true" style="vertical-align: middle">Hide code snippet</span></a></p></div>
+    <div class="snippet-code snippet-currently-hidden" style="display: block;">
+<pre class="snippet-code-css lang-css prettyprint prettyprinted"><code><span class="pln">body</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">margin</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> </span><span class="com">/* removing the default body margin */</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">.</span><span class="pln">parent</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">font-size</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">  </span><span class="com">/* parent value */</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">.</span><span class="pln">parent </span><span class="pun">&gt;</span><span class="pln"> div</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">display</span><span class="pun">:</span><span class="pln"> inline-block</span><span class="pun">;</span><span class="pln">
+  </span><span class="kwd">width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">50%</span><span class="pun">;</span><span class="pln">
+  </span><span class="kwd">font-size</span><span class="pun">:</span><span class="pln"> </span><span class="lit">16px</span><span class="pun">;</span><span class="pln"> </span><span class="com">/* some value */</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">.</span><span class="pln">left</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">background-color</span><span class="pun">:</span><span class="pln"> aqua</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">.</span><span class="pln">right</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">background-color</span><span class="pun">:</span><span class="pln"> gold</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<pre class="snippet-code-html lang-html prettyprint prettyprinted"><code><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"parent"</span><span class="tag">&gt;</span><span class="pln">
+  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"left"</span><span class="tag">&gt;</span><span class="pln">foo</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+  </span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"right"</span><span class="tag">&gt;</span><span class="pln">bar</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+</span><span class="tag">&lt;/div&gt;</span></code></pre>
+        <div class="snippet-result" style="width: 100%; border: 1px solid #AAAAAA;"><div style="width: 100%; margin: 0 5px;"><input type="button" value="? Run code snippet" style="margin: 1em 0 1em 0.5em; float: none;"><input class="copySnippet" type="button" value="Copy snippet to answer" style="margin: 1em 0px 1em 0.5em; float: none; display: none;"><input class="hideResults" type="button" value="Hide results" style="margin: 1em 0px 1em 0.5em; float: none; display: none;"></div><div style="position: relative; width: 100%; height: 200px; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(170, 170, 170); display: none;"><iframe name="35d5dc1a-45a1-c8f3-8813-ff1f610665a2" sandbox="allow-modals allow-scripts" class="snippet-box-edit" frameborder="0"></iframe></div></div></div>
+</div>
+    <p></p>
+
+    <p><strong>4. Using a negative margin between them (<a href="http://stackoverflow.com/questions/18262300/two-inline-block-elements-each-50-wide-do-not-fit-side-by-side-in-a-single-ro/18262352#comment30510977_18262337">not preferable</a>)</strong></p>
+
+    <p></p><div class="snippet" data-lang="js" data-hide="true"><div class="snippet-display" style="vertical-align: center"><p><a class="snippet-show-link-chevron"><span class="expander-arrow-show" style="vertical-align: middle;"></span></a><a class="snippet-show-link"><span class="show-hide" data-ishidden="true" style="vertical-align: middle">Hide code snippet</span></a></p></div>
+    <div class="snippet-code snippet-currently-hidden" style="display: block;">
+<pre class="snippet-code-css lang-css prettyprint prettyprinted"><code><span class="pln">body</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">margin</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> </span><span class="com">/* removing the default body margin */</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+div</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">display</span><span class="pun">:</span><span class="pln"> inline-block</span><span class="pun">;</span><span class="pln">
+  </span><span class="kwd">width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">50%</span><span class="pun">;</span><span class="pln">
+  </span><span class="kwd">margin-right</span><span class="pun">:</span><span class="pln"> </span><span class="pun">-</span><span class="lit">4px</span><span class="pun">;</span><span class="pln"> </span><span class="com">/* negative margin */</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">.</span><span class="pln">left</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">background-color</span><span class="pun">:</span><span class="pln"> aqua</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">.</span><span class="pln">right</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">background-color</span><span class="pun">:</span><span class="pln"> gold</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<pre class="snippet-code-html lang-html prettyprint prettyprinted"><code><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"left"</span><span class="tag">&gt;</span><span class="pln">foo</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"right"</span><span class="tag">&gt;</span><span class="pln">bar</span><span class="tag">&lt;/div&gt;</span></code></pre>
+        <div class="snippet-result" style="width: 100%; border: 1px solid #AAAAAA;"><div style="width: 100%; margin: 0 5px;"><input type="button" value="? Run code snippet" style="margin: 1em 0 1em 0.5em; float: none;"><input class="copySnippet" type="button" value="Copy snippet to answer" style="margin: 1em 0px 1em 0.5em; float: none; display: none;"><input class="hideResults" type="button" value="Hide results" style="margin: 1em 0px 1em 0.5em; float: none; display: none;"></div><div style="position: relative; width: 100%; height: 200px; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(170, 170, 170); display: none;"><iframe name="763d9a46-e317-a017-e944-4f5135ecf3bf" sandbox="allow-modals allow-scripts" class="snippet-box-edit" frameborder="0"></iframe></div></div></div>
+</div>
+    <p></p>
+
+    <p><strong>5. Dropping closing angle</strong></p>
+
+    <p></p><div class="snippet" data-lang="js" data-hide="true"><div class="snippet-display" style="vertical-align: center"><p><a class="snippet-show-link-chevron"><span class="expander-arrow-show" style="vertical-align: middle;"></span></a><a class="snippet-show-link"><span class="show-hide" data-ishidden="true" style="vertical-align: middle">Hide code snippet</span></a></p></div>
+    <div class="snippet-code snippet-currently-hidden" style="display: block;">
+<pre class="snippet-code-css lang-css prettyprint prettyprinted"><code><span class="pln">body</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">margin</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> </span><span class="com">/* removing the default body margin */</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+div</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">display</span><span class="pun">:</span><span class="pln"> inline-block</span><span class="pun">;</span><span class="pln">
+  </span><span class="kwd">width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">50%</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">.</span><span class="pln">left</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">background-color</span><span class="pun">:</span><span class="pln"> aqua</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">.</span><span class="pln">right</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">background-color</span><span class="pun">:</span><span class="pln"> gold</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<pre class="snippet-code-html lang-html prettyprint prettyprinted"><code><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"left"</span><span class="tag">&gt;</span><span class="pln">foo</span><span class="tag">&lt;/div</span><span class="pln">
+</span><span class="tag">&gt;&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"right"</span><span class="tag">&gt;</span><span class="pln">bar</span><span class="tag">&lt;/div&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;hr&gt;</span><span class="pln">
+
+</span><span class="tag">&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"left"</span><span class="tag">&gt;</span><span class="pln">foo</span><span class="tag">&lt;/div&gt;&lt;div</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"right"</span><span class="tag">&gt;</span><span class="pln">
+bar</span><span class="tag">&lt;/div&gt;</span></code></pre>
+        <div class="snippet-result" style="width: 100%; border: 1px solid #AAAAAA;"><div style="width: 100%; margin: 0 5px;"><input type="button" value="? Run code snippet" style="margin: 1em 0 1em 0.5em; float: none;"><input class="copySnippet" type="button" value="Copy snippet to answer" style="margin: 1em 0px 1em 0.5em; float: none; display: none;"><input class="hideResults" type="button" value="Hide results" style="margin: 1em 0px 1em 0.5em; float: none; display: none;"></div><div style="position: relative; width: 100%; height: 200px; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(170, 170, 170); display: none;"><iframe name="8860834a-31d4-2ca1-9800-58105922f5e8" sandbox="allow-modals allow-scripts" class="snippet-box-edit" frameborder="0"></iframe></div></div></div>
+</div>
+    <p></p>
+
+    <p><strong>6. Skipping <a href="https://developers.whatwg.org/syntax.html#optional-tags" rel="nofollow">certain</a> HTML closing tags</strong> (thanks @thirtydot for the <a href="http://stackoverflow.com/a/5078297/1763929">reference</a>)</p>
+
+    <p></p><div class="snippet" data-lang="js" data-hide="true"><div class="snippet-display" style="vertical-align: center"><p><a class="snippet-show-link-chevron"><span class="expander-arrow-show" style="vertical-align: middle;"></span></a><a class="snippet-show-link"><span class="show-hide" data-ishidden="true" style="vertical-align: middle">Hide code snippet</span></a></p></div>
+    <div class="snippet-code snippet-currently-hidden" style="display: block;">
+<pre class="snippet-code-css lang-css prettyprint prettyprinted"><code><span class="pln">body</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">margin</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> </span><span class="com">/* removing the default body margin */</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+ul</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">margin</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> </span><span class="com">/* removing the default ul margin */</span><span class="pln">
+  </span><span class="kwd">padding</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln"> </span><span class="com">/* removing the default ul padding */</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+li</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">display</span><span class="pun">:</span><span class="pln"> inline-block</span><span class="pun">;</span><span class="pln">
+  </span><span class="kwd">width</span><span class="pun">:</span><span class="pln"> </span><span class="lit">50%</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">.</span><span class="pln">left</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">background-color</span><span class="pun">:</span><span class="pln"> aqua</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">.</span><span class="pln">right</span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">background-color</span><span class="pun">:</span><span class="pln"> gold</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<pre class="snippet-code-html lang-html prettyprint prettyprinted"><code><span class="tag">&lt;ul&gt;</span><span class="pln">
+  </span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"left"</span><span class="tag">&gt;</span><span class="pln">foo
+  </span><span class="tag">&lt;li</span><span class="pln"> </span><span class="atn">class</span><span class="pun">=</span><span class="atv">"right"</span><span class="tag">&gt;</span><span class="pln">bar
+</span><span class="tag">&lt;/ul&gt;</span></code></pre>
+        <div class="snippet-result" style="width: 100%; border: 1px solid #AAAAAA;"><div style="width: 100%; margin: 0 5px;"><input type="button" value="? Run code snippet" style="margin: 1em 0 1em 0.5em; float: none;"><input class="copySnippet" type="button" value="Copy snippet to answer" style="margin: 1em 0px 1em 0.5em; float: none; display: none;"><input class="hideResults" type="button" value="Hide results" style="margin: 1em 0px 1em 0.5em; float: none; display: none;"></div><div style="position: relative; width: 100%; height: 200px; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(170, 170, 170); display: none;"><iframe name="d166e4e7-ebd3-937a-45e0-77ccce82182d" sandbox="allow-modals allow-scripts" class="snippet-box-edit" frameborder="0"></iframe></div></div></div>
+</div>
+    <p></p>
+
+    <hr>
+
+    <p>References:</p>
+
+    <ol>
+        <li><a href="https://css-tricks.com/fighting-the-space-between-inline-block-elements/" rel="nofollow">Fighting the Space Between Inline Block Elements on CSS Tricks</a></li>
+        <li><a href="https://davidwalsh.name/remove-whitespace-inline-block" rel="nofollow">Remove Whitespace Between Inline-Block Elements by David Walsh</a></li>
+        <li><a href="http://stackoverflow.com/questions/5078239/how-to-remove-the-space-between-inline-block-elements">How to remove the space between inline-block elements?</a></li>
+    </ol>
+
+    <hr>
+
+    <p>As @MarcosPérezGude said, the <strong>best</strong> way is to use <code>rem</code>, and add some value to <code>font-size</code> on the <code>html</code> tag. Example:</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="pln">html</span><span class="pun">{</span><span class="pln">
+     font</span><span class="pun">-</span><span class="pln">size</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1em</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">.</span><span class="pln">ib</span><span class="pun">-</span><span class="pln">parent</span><span class="pun">{</span><span class="pln">             </span><span class="com">/* ib -&gt; inline-block */</span><span class="pln">
+    font</span><span class="pun">-</span><span class="pln">size</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span><span class="pln">
+
+</span><span class="pun">.</span><span class="pln">ib</span><span class="pun">-</span><span class="pln">parent</span><span class="pun">&gt;*{</span><span class="pln">
+    display</span><span class="pun">:</span><span class="pln"> </span><span class="kwd">inline</span><span class="pun">-</span><span class="pln">block</span><span class="pun">;</span><span class="pln">
+    font</span><span class="pun">-</span><span class="pln">size</span><span class="pun">:</span><span class="pln"> </span><span class="lit">1rem</span><span class="pun">;</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+</div>
